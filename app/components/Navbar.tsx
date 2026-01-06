@@ -7,11 +7,12 @@ export default function Navbar() {
 
         {/* Logo + Title */}
         <div className="flex items-center gap-3">
-          <img
+            <Link href="/">
+            <img
             src="/images/logos/logo.png"
             alt="Hero-X Logo"
             className="h-10 w-10 object-contain hover:scale-110 transition-transform duration-300"
-          />
+          /></Link>
         </div>
 
         {/* Navigation Links */}
