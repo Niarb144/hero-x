@@ -13,7 +13,12 @@ export default function HeroSearch() {
       `http://localhost:4000/api/heroes/search/${query}`,
       { withCredentials: true }
     );
+
     setHeroes(res.data);
+
+    if(res.data.length === 0){
+        alert("No hero found with that name.");
+    }
     console.log(res.data);
   };
 
