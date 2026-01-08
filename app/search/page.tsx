@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import HeroLoader from "../components/HeroLoader";
 
 export default function HeroSearch() {
   const [query, setQuery] = useState("");
@@ -35,25 +34,14 @@ export default function HeroSearch() {
   }
 };
 
-  function HeroLoader() {
   return (
-    <div className="flex flex-col items-center justify-center mt-24">
-      <div className="relative w-20 h-20">
-        <div className="absolute inset-0 rounded-full border-4 border-blue-500/20"></div>
-        <div className="absolute inset-0 rounded-full border-4 border-blue-500 border-t-transparent animate-spin"></div>
-      </div>
-      <p className="mt-5 text-sm uppercase tracking-widest text-blue-400">
-        Loading heroes
-      </p>
-    </div>
-  );
-}
-
-  return (
-    <main className="min-h-screen md:w-full bg-gray-900 text-white p- bg-cover bg-center"
+    <main className="relative min-h-screen md:w-full bg-gray-900 text-white p- bg-cover bg-center"
     style={{ backgroundImage: "url('/images/comics-bg.jpg')" }}>
 
-      <div className="flex gap-4 pt-30 pl-8">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/60 rounded-lg"></div>
+
+      <div className="flex gap-4 pt-30 pl-8 z-10 relative">
         <input
           className="p-2 rounded text-white bg-gray-700"
           placeholder="Search hero..."
@@ -76,21 +64,32 @@ export default function HeroSearch() {
       {loading && <HeroLoader />}
 
       {!loading && (
-        <div className="grid md:grid-cols-3 gap-6 mt-10 p-4">
+        <div className="grid md:grid-cols-3 gap-6 mt-10 p-4 z-10 relative">
           {heroes.map((hero: any) => (
             <div
               key={hero.id}
-              className="bg-gray-800 p-4 rounded-lg hover:scale-[1.02] transition-transform duration-300"
+              className="relative bg-gray-800 md:h-[64dvh] p-4 rounded-lg hover:scale-[1.02] transition-transform duration-300"
+              style={{ backgroundImage: `url(${hero.image.url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
             >
-              <img
+              {/* Dark overlay */}
+              <div className="absolute inset-0 rounded-lg 
+                bg-gradient-to-bl 
+                from-black/0 
+                via-black/40 
+                to-black/80">
+              </div>
+
+
+              <h2 className="absolute text-4xl font-bold mt-2 z-10 bottom-4">{hero.name}</h2>
+              {/* <img
                 src={hero.image.url}
                 alt={hero.name}
-                className="rounded mb-2"
-              />
-              <h2 className="text-xl font-bold mt-2">{hero.name}</h2>
-              <ul className="mt-2 text-sm text-gray-300">
-                <li>{hero.appearance.gender}</li>
-                <li>{hero.appearance.race}</li>
+                className="rounded mb-2 md:h-64 object-cover md:w-full"
+              /> */}
+              
+              <ul className="absolute bottom-4 right-4 mt-2 text-sm text-white-500 z-10">
+                <li>Gender: {hero.appearance.gender}</li>
+                <li>Race: {hero.appearance.race}</li>
                 <li>Height: {hero.appearance.height[1]}</li>
                 <li>Weight: {hero.appearance.weight[1]}</li>
                 <li>Eye Color: {hero.appearance["eye-color"]}</li>
