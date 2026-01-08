@@ -14,7 +14,7 @@ export default function Hero(){
             <div className="absolute inset-0 bg-black/60 rounded-lg"></div>
 
             {/* Content */}
-            <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-32 text-center md:text-left">
+            <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-40 md:mt-20 text-center md:text-left">
                 <h1 className="text-2xl font-extrabold tracking-wide text-white">
                     Hero<span className="text-blue-400">-X</span>
                 </h1>
