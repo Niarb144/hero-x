@@ -23,6 +23,7 @@ export default function HeroSearch() {
     );
 
     setHeroes(res.data);
+    console.log(res.data);
 
     if (res.data.length === 0) {
       alert("No hero found with that name.");
@@ -80,7 +81,8 @@ export default function HeroSearch() {
               </div>
 
 
-              <h2 className="absolute text-4xl font-bold mt-2 z-10 bottom-4 md:w-[50%]">{hero.name}</h2>
+              <h2 className="absolute text-4xl font-bold mt-2 z-10 bottom-10 md:w-[50%]">{hero.name}</h2>
+              <h3 className="absolute text-xl bottom-2 md:w-[50%]">{hero.biography["full-name"]}</h3>
               {/* <img
                 src={hero.image.url}
                 alt={hero.name}
