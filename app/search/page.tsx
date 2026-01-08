@@ -80,7 +80,7 @@ export default function HeroSearch() {
               </div>
 
 
-              <h2 className="absolute text-4xl font-bold mt-2 z-10 bottom-4">{hero.name}</h2>
+              <h2 className="absolute text-4xl font-bold mt-2 z-10 bottom-4 md:w-[50%]">{hero.name}</h2>
               {/* <img
                 src={hero.image.url}
                 alt={hero.name}
@@ -90,7 +90,7 @@ export default function HeroSearch() {
               <ul className="absolute bottom-4 right-4 mt-2 text-sm text-white-500 z-10">
                 <li>Gender: {hero.appearance.gender}</li>
                 <li>Race: {hero.appearance.race}</li>
-                <li>Height: {hero.appearance.height[1]}</li>
+                <li>Height: {hero.appearance.height[1]}/{hero.appearance.height[0]}</li>
                 <li>Weight: {hero.appearance.weight[1]}</li>
                 <li>Eye Color: {hero.appearance["eye-color"]}</li>
                 <li>Hair Color: {hero.appearance["hair-color"]}</li>
