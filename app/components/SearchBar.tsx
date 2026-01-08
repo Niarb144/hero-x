@@ -24,7 +24,7 @@ export default function HeroSearch() {
   };
 
   return (
-    <main className="min-h-screen md:w-full bg-gray-900 text-white p-8"
+    <main className="min-h-screen md:w-full bg-gray-900 text-white p-8 bg-cover bg-center"
     style={{ backgroundImage: "url('/images/comics-bg.jpg')" }}>
         <Navbar />
       <h1 className="text-4xl font-bold mb-6">Hero-X</h1>

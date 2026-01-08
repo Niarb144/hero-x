@@ -24,12 +24,12 @@ export default function HeroSearch() {
   };
 
   return (
-    <main className="min-h-screen md:w-full bg-gray-900 text-white p-8"
+    <main className="min-h-screen md:w-full bg-gray-900 text-white p- bg-cover bg-center"
     style={{ backgroundImage: "url('/images/comics-bg.jpg')" }}>
         <Navbar />
       <h1 className="text-4xl font-bold mb-6">Hero-X</h1>
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 p-4">
         <input
           className="p-2 rounded text-white bg-gray-700"
           placeholder="Search hero..."
@@ -43,7 +43,7 @@ export default function HeroSearch() {
         </button>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6 mt-10">
+      <div className="grid md:grid-cols-3 gap-6 mt-10 p-4">
         {heroes.map((hero: any) => (
           <div key={hero.id} className="bg-gray-800 p-4 rounded">
             <img src={hero.image.url} alt={hero.name} />
